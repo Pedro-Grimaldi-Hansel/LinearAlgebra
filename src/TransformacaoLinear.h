@@ -31,9 +31,7 @@ TransformacaoLinear::TransformacaoLinear(float a, float b, float c, float d)
     matriz[1][1] = d;
 }
 
-TransformacaoLinear::~TransformacaoLinear()
-{
-}
+TransformacaoLinear::~TransformacaoLinear(){}
 
 void TransformacaoLinear::aplicarTransformacaoLinear(float x, float y)
 {
