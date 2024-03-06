@@ -4,9 +4,13 @@ Este é um projeto em C++ que realiza operações de álgebra linear.
 
 ## Funcionalidades
 
-- Adição de Vetores
-- Multiplicação de Vetores por Escalares
-- Trasnformações Lineares (2d)
+- Adição e Subtração de Vetores
+- Multiplicação e Divisão de Vetores por Escalares
+- Calculo da Norma Euclidiana de um Vetor
+- Normalização de um Vetor
+- Trasnformações Lineares (2D)
+
+*Essas funções são idealizadas para receberem inputs manuais, porem existem também as funções internas (funções que o nome terminam com _FuncaoInterna) onde os inputs são passados por parametro.
 
 ## Requisitos
 
