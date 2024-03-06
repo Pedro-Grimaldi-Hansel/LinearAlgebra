@@ -7,48 +7,50 @@ using namespace std;
 class AdicaoDeVetores
 {
 private:
-    float vet2D_1[2];
-    float vet2D_2[2];
-    float vet3D_1[3];
-    float vet3D_2[3];
+    float *vet1;
+    float *vet2;
+    int dimensao;
 
 public:
-    AdicaoDeVetores();
+    AdicaoDeVetores(int dimensoes);
     ~AdicaoDeVetores();
-    void adicionarVetores2D(float x1, float y1, float x2, float y2);
-    void adicionarVetores3D(float x1, float y1, float z1, float x2, float y2, float z2);
+    void adicionarVetores();
 };
 
 #endif // ADICAODEVETORES_H_INCLUDED
 
-AdicaoDeVetores::AdicaoDeVetores(){}
-
-AdicaoDeVetores::~AdicaoDeVetores(){}
-
-void AdicaoDeVetores::adicionarVetores2D(float x1, float y1, float x2, float y2)
-{
-    vet2D_1[0] = x1;
-    vet2D_1[1] = y1;
-    vet2D_2[0] = x2;
-    vet2D_2[1] = y2;
-
-    cout << "Vetor 1: [" << vet2D_1[0] << ", " << vet2D_1[1] << "]" << endl;
-    cout << "Vetor 2: [" << vet2D_2[0] << ", " << vet2D_2[1] << "]" << endl;
-
-    cout << "Resultado: [" << vet2D_1[0] + vet2D_2[0] << ", " << vet2D_1[1] + vet2D_2[1] << "]" << endl;
+AdicaoDeVetores::AdicaoDeVetores(int dimensoes){
+    dimensao = dimensoes;
+    vet1 = new float[dimensoes];
+    vet2 = new float[dimensoes];
 }
 
-void AdicaoDeVetores::adicionarVetores3D(float x1, float y1, float z1, float x2, float y2, float z2)
+AdicaoDeVetores::~AdicaoDeVetores(){
+    delete[] vet1;
+}
+
+void AdicaoDeVetores::adicionarVetores()
 {
-    vet3D_1[0] = x1;
-    vet3D_1[1] = y1;
-    vet3D_1[2] = z1;
-    vet3D_2[0] = x2;
-    vet3D_2[1] = y2;
-    vet3D_2[2] = z2;
+    cout << endl << "Digite os valores do primeiro vetor: " << endl;
+    for (int i = 0; i < dimensao; i++)
+    {
+        cin >> vet1[i];
+    }
+    cout << endl << "Digite os valores do segundo vetor: " << endl;
+    for (int i = 0; i < dimensao; i++)
+    {
+        cin >> vet2[i];
+    }
 
-    cout << "Vetor 1: [" << vet3D_1[0] << ", " << vet3D_1[1] << ", " << vet3D_1[2] << "]" << endl;
-    cout << "Vetor 2: [" << vet3D_2[0] << ", " << vet3D_2[1] << ", " << vet3D_2[2] << "]" << endl;
+    float *resultado = new float[dimensao];
+    for (int i = 0; i < dimensao; i++)
+    {
+        resultado[i] = vet1[i] + vet2[i];
+    }
 
-    cout << "Resultado: [" << vet3D_1[0] + vet3D_2[0] << ", " << vet3D_1[1] + vet3D_2[1] << ", " << vet3D_1[2] + vet3D_2[2] << "]" << endl;
+    cout << endl << "Resultado: " << endl;
+    for (int i = 0; i < dimensao; i++)
+    {
+        cout << resultado[i];
+    }
 }
