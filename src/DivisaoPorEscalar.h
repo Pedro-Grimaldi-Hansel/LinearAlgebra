@@ -14,6 +14,7 @@ public:
     DivisaoPorEscalar();
     ~DivisaoPorEscalar();
     void dividirPorEscalar();
+    float* divisaoPorEscalar_FuncaoInterna(int dimensao, float *vet, float escalar);
 };
 
 #endif // DIVISAOPORESCALAR_H_INCLUDED
@@ -42,6 +43,12 @@ void DivisaoPorEscalar::dividirPorEscalar()
     cout << endl << "De o valor do escalar: "<< endl;
     cin >> escalar;
 
+    while (escalar == 0)
+    {
+        cout << "Nao e possivel dividir por zero, de outro valor para o escalar:" << endl;
+        cin >> escalar;
+    }
+
     float *resultado = new float[dimensao];
     for (int i = 0; i < dimensao; i++)
     {
@@ -60,4 +67,21 @@ void DivisaoPorEscalar::dividirPorEscalar()
         }
     }
     delete[] resultado;
+}
+
+float* DivisaoPorEscalar::divisaoPorEscalar_FuncaoInterna(int dimensao, float *vet, float escalar)
+{
+    if (escalar == 0)
+    {
+        cout << "Nao e possivel dividir por zero!" << endl;
+        return 0;
+    }
+    
+    float *resultado = new float[dimensao];
+    for (int i = 0; i < dimensao; i++)
+    {
+        resultado[i] = vet[i] / escalar;
+    }
+
+    return resultado;
 }

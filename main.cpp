@@ -25,7 +25,8 @@ int main()
     int opcao;
     cin >> opcao;
     cout << endl;
-    if (opcao < 0 || opcao > 4)
+
+    while (opcao < 0 || opcao > 7)
     {
         cout << "Opcao invalida! Insira a opcao novamente:";
         cin >> opcao;
@@ -82,8 +83,8 @@ int main()
 
         case 6:
         {
-            
-            
+            Normalizacao normalizacao;
+            normalizacao.normalizarVetor();
 
             break;
         }
