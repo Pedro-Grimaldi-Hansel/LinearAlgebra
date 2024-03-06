@@ -54,9 +54,11 @@ void AdicaoDeVetores::adicionarVetores()
         if (dimensao - 1 == i)
         {
             cout << resultado[i] << "]" << endl;
-            break;
         }
-        cout << resultado[i] << ", ";
+        if (dimensao - 1 != i)
+        {
+            cout << resultado[i] << ", ";
+        }
     }
     delete[] resultado;
 }
