@@ -17,6 +17,7 @@ int main()
     cout << "1 - Adicao de Vetores" << endl;
     cout << "2 - Subtracao de Vetores" << endl;
     cout << "3 - Multiplicacao de Vetor por Escalar" << endl;
+    cout << "4 - Divisao de Vetor por Escalar" << endl;
     cout << "5 - Calculo da Norma Euclidiana" << endl;
     cout << "6 - Normalizacao de Vetor" << endl;
     cout << "7 - Transformacao Linear de Vetores" << endl;
@@ -60,6 +61,14 @@ int main()
         {            
             MultiplicacaoPorEscalar multiplicacaoPorEscalar;
             multiplicacaoPorEscalar.multiplicarPorEscalar();
+
+            break;
+        }
+
+        case 4:
+        {            
+            DivisaoPorEscalar divisaoPorEscalar;
+            divisaoPorEscalar.dividirPorEscalar();
 
             break;
         }
