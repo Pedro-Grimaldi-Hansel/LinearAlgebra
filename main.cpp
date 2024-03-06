@@ -4,6 +4,7 @@
 #include "src/AdicaoDeVetores.h"
 #include "src/MultiplicacaoPorEscalar.h"
 #include "src/NormaEuclidiana.h"
+#include "src/Normalizacao.h"
 
 using namespace std;
 
@@ -14,7 +15,8 @@ int main()
     cout << "1 - Adicao de Vetores" << endl;
     cout << "2 - Multiplicacao de Vetor por Escalar" << endl;
     cout << "3 - Calculo da Norma Euclidiana" << endl;
-    cout << "4 - Transformacao Linear de Vetores" << endl;
+    cout << "4 - Normalizacao de Vetor" << endl;
+    cout << "5 - Transformacao Linear de Vetores" << endl;
     cout << endl << "Escolha a operacao a ser realizada: ";
     int opcao;
     cin >> opcao;
@@ -37,21 +39,15 @@ int main()
 
         case 1:
         {   
-            int dimensoes;
-            cout << "De o numero de dimensoes dos vetores: "<< endl;
-            cin >> dimensoes;
-            AdicaoDeVetores adicaoDeVetores(dimensoes);
+            AdicaoDeVetores adicaoDeVetores;
             adicaoDeVetores.adicionarVetores();
 
             break;
         }
 
         case 2:
-        {
-            int dimensoes;
-            cout << "De o numero de dimensoes do vetor: "<< endl;
-            cin >> dimensoes;
-            MultiplicacaoPorEscalar multiplicacaoPorEscalar(dimensoes);
+        {            
+            MultiplicacaoPorEscalar multiplicacaoPorEscalar;
             multiplicacaoPorEscalar.multiplicarPorEscalar();
 
             break;
@@ -59,16 +55,20 @@ int main()
 
         case 3:
         {
-            int dimensoes;
-            cout << "De o numero de dimensoes do vetor: "<< endl;
-            cin >> dimensoes;
-            NormaEuclidiana normaEuclidiana(dimensoes);
+            NormaEuclidiana normaEuclidiana;
             normaEuclidiana.calcularNorma();
-            
             break;
         }
 
         case 4:
+        {
+            
+            
+
+            break;
+        }
+
+        case 5:
         {
             float a, b, c, d, x, y;
 

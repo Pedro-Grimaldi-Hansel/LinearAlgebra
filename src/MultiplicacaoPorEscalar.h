@@ -11,18 +11,14 @@ private:
     int dimensao;
 
 public:
-    MultiplicacaoPorEscalar(int dimensoes);
+    MultiplicacaoPorEscalar();
     ~MultiplicacaoPorEscalar();
     void multiplicarPorEscalar();
 };
 
 #endif // MULTIPLICACAOPORESCALAR_H_INCLUDED
 
-MultiplicacaoPorEscalar::MultiplicacaoPorEscalar(int dimensoes)
-{
-    dimensao = dimensoes;
-    vet = new float[dimensoes];
-}
+MultiplicacaoPorEscalar::MultiplicacaoPorEscalar(){}
 
 MultiplicacaoPorEscalar::~MultiplicacaoPorEscalar()
 {
@@ -30,7 +26,11 @@ MultiplicacaoPorEscalar::~MultiplicacaoPorEscalar()
 }
 
 void MultiplicacaoPorEscalar::multiplicarPorEscalar()
-{
+{   
+    cout << "De o numero de dimensoes do vetor: "<< endl;
+    cin >> dimensao;
+
+    vet = new float[dimensao];
 
     cout << endl<< "De os valores do vetor: "<< endl;
     for (int i = 0; i < dimensao; i++)

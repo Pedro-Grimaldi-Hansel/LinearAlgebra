@@ -12,25 +12,28 @@ private:
     int dimensao;
 
 public:
-    AdicaoDeVetores(int dimensoes);
+    AdicaoDeVetores();
     ~AdicaoDeVetores();
     void adicionarVetores();
 };
 
 #endif // ADICAODEVETORES_H_INCLUDED
 
-AdicaoDeVetores::AdicaoDeVetores(int dimensoes){
-    dimensao = dimensoes;
-    vet1 = new float[dimensoes];
-    vet2 = new float[dimensoes];
-}
+AdicaoDeVetores::AdicaoDeVetores(){}
 
 AdicaoDeVetores::~AdicaoDeVetores(){
     delete[] vet1;
+    delete[] vet2;
 }
 
 void AdicaoDeVetores::adicionarVetores()
-{
+{   
+    cout << "De o numero de dimensoes dos vetores: "<< endl;
+    cin >> dimensao;
+
+    vet1 = new float[dimensao];
+    vet2 = new float[dimensao];
+
     cout << endl << "Digite os valores do primeiro vetor: " << endl;
     for (int i = 0; i < dimensao; i++)
     {
