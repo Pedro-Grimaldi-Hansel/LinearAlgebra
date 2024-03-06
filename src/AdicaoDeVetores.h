@@ -48,9 +48,15 @@ void AdicaoDeVetores::adicionarVetores()
         resultado[i] = vet1[i] + vet2[i];
     }
 
-    cout << endl << "Resultado: " << endl;
+    cout << endl << "Vetor resultante: [";
     for (int i = 0; i < dimensao; i++)
-    {
-        cout << resultado[i];
+    {   
+        if (dimensao - 1 == i)
+        {
+            cout << resultado[i] << "]" << endl;
+            break;
+        }
+        cout << resultado[i] << ", ";
     }
+    delete[] resultado;
 }
