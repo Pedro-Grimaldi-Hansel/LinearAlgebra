@@ -43,5 +43,5 @@ void NormaEuclidiana::calcularNorma()
     }
     float norma = sqrt(soma);
 
-    cout << "Norma Euclidiana do vetor (magnitude): " << norma << endl;
+    cout << endl << "Norma Euclidiana do vetor (magnitude): " << norma << endl;
 }
