@@ -20,13 +20,15 @@ int main()
     cout << "4 - Divisao de Vetor por Escalar" << endl;
     cout << "5 - Calculo da Norma Euclidiana" << endl;
     cout << "6 - Normalizacao de Vetor" << endl;
-    cout << "7 - Transformacao Linear de Vetores" << endl;
+    cout << "7 - Produto Escalar" << endl;
+    cout << "8 - Produto Vetorial" << endl;
+    cout << "9 - Transformacao Linear de Vetores" << endl;
     cout << endl << "Escolha a operacao a ser realizada: ";
     int opcao;
     cin >> opcao;
     cout << endl;
 
-    while (opcao < 0 || opcao > 7)
+    while (opcao < 0 || opcao > 9)
     {
         cout << "Opcao invalida! Insira a opcao novamente:";
         cin >> opcao;
@@ -91,6 +93,20 @@ int main()
 
         case 7:
         {
+                     
+
+            break;
+        }
+        
+        case 8:
+        {
+
+
+            break;
+        }
+
+        case 9:
+        {
             float a, b, c, d, x, y;
 
             cout << "De os valores do vetor de entrada: "<< endl;
@@ -105,7 +121,7 @@ int main()
 
             break;
         }
-        
+
         default:
             break;
         }
