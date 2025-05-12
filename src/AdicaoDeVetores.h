@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 #ifndef ADICAODEVETORES_H_INCLUDED
@@ -7,61 +8,53 @@ using namespace std;
 class AdicaoDeVetores
 {
 private:
-    float *vet1;
-    float *vet2;
-    int dimensao;
+    vector<float> vet1;
+    vector<float> vet2;
 
 public:
     AdicaoDeVetores();
-    ~AdicaoDeVetores();
     void adicionarVetores();
 };
 
 #endif // ADICAODEVETORES_H_INCLUDED
 
-AdicaoDeVetores::AdicaoDeVetores(){}
-
-AdicaoDeVetores::~AdicaoDeVetores(){
-    delete[] vet1;
-    delete[] vet2;
-}
+AdicaoDeVetores::AdicaoDeVetores() {}
 
 void AdicaoDeVetores::adicionarVetores()
-{   
-    cout << "De o numero de dimensoes dos vetores: "<< endl;
+{
+    int dimensao;
+    cout << "Dê o número de dimensões dos vetores: ";
     cin >> dimensao;
 
-    vet1 = new float[dimensao];
-    vet2 = new float[dimensao];
+    if (dimensao <= 0) {
+        cout << "Dimensão inválida!" << endl;
+        return;
+    }
 
-    cout << endl << "Digite os valores do primeiro vetor: " << endl;
-    for (int i = 0; i < dimensao; i++)
-    {
+    vet1.resize(dimensao);
+    vet2.resize(dimensao);
+
+    cout << "\nDigite os valores do primeiro vetor:\n";
+    for (int i = 0; i < dimensao; i++) {
         cin >> vet1[i];
     }
-    cout << endl << "Digite os valores do segundo vetor: " << endl;
-    for (int i = 0; i < dimensao; i++)
-    {
+
+    cout << "\nDigite os valores do segundo vetor:\n";
+    for (int i = 0; i < dimensao; i++) {
         cin >> vet2[i];
     }
 
-    float *resultado = new float[dimensao];
-    for (int i = 0; i < dimensao; i++)
-    {
+    vector<float> resultado(dimensao);
+    for (int i = 0; i < dimensao; i++) {
         resultado[i] = vet1[i] + vet2[i];
     }
 
-    cout << endl << "Vetor resultante: [";
-    for (int i = 0; i < dimensao; i++)
-    {   
-        if (dimensao - 1 == i)
-        {
-            cout << resultado[i] << "]" << endl;
-        }
-        if (dimensao - 1 != i)
-        {
-            cout << resultado[i] << ", ";
-        }
+    cout << "\nVetor resultante: [";
+    for (int i = 0; i < dimensao; i++) {
+        cout << resultado[i];
+        if (i != dimensao - 1)
+            cout << ", ";
     }
-    delete[] resultado;
+    cout << "]" << endl;
 }
+
