@@ -14,11 +14,11 @@ public:
 };
 
 inline void AdicaoDeVetores::adicionarVetores() {
-    vector<double> vet1 = LeitorDeVetores::lerVetor("Digite o primeiro vetor no formato (x,y,z,...): ");
-    vector<double> vet2 = LeitorDeVetores::lerVetor("Digite o segundo vetor no formato (x,y,z,...): ");
+    vector<double> vet1 = LeitorDeVetores::readVector("Digite o primeiro vetor no formato (x,y,z,...): ");
+    vector<double> vet2 = LeitorDeVetores::readVector("Digite o segundo vetor no formato (x,y,z,...): ");
 
-    LeitorDeVetores::imprimirVetor(vet1);
-    LeitorDeVetores::imprimirVetor(vet2);
+    LeitorDeVetores::printVector(vet1);
+    LeitorDeVetores::printVector(vet2);
 
     size_t maxDim = max(vet1.size(), vet2.size());
     vet1.resize(maxDim, 0.0);
@@ -30,7 +30,7 @@ inline void AdicaoDeVetores::adicionarVetores() {
     }
 
     cout << "\nResultado da soma: ";
-    LeitorDeVetores::imprimirVetor(resultado);
+    LeitorDeVetores::printVector(resultado);
     cout << endl;
 }
 

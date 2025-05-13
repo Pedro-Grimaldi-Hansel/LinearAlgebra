@@ -12,82 +12,81 @@ using namespace std;
 
 class LeitorDeVetores {
 public:
-    static vector<double> lerVetor(const string& prompt);
-    static vector<double> parseVetor(const string& entrada);
-    static void imprimirVetor(const vector<double>& v);
+    static vector<double> readVector(const string& prompt);
+    static vector<double> parseVector(const string& entry);
+    static void printVector(const vector<double>& v);
 };
 
-inline vector<double> LeitorDeVetores::lerVetor(const string& prompt) {
-    string entrada;
-    vector<double> vetor;
-    int tentativas = 0;
-    const int maxTentativas = 3; // Limite opcional de tentativas
+inline vector<double> LeitorDeVetores::readVector(const string& prompt) {
+    string entry;
+    vector<double> vector;
+    int attempts = 0;
+    const int maxAttempts = 3;
 
     do {
-        if (tentativas > 0) {
+        if (attempts > 0) {
             cout << "Erro: Entrada inválida! Tente novamente.\n";
-            if (tentativas == maxTentativas) {
+            if (attempts == maxAttempts) {
                 cout << "Número máximo de tentativas excedido. Encerrando leitura.\n";
-                return {}; // Retorna um vetor vazio após muitas tentativas
+                return {};
             }
         }
 
         cout << prompt;
-        cin.sync(); // Garante que o buffer está completamente limpo antes da leitura
-        getline(cin, entrada);
+        cin.sync();
+        getline(cin, entry);
 
-        vetor = parseVetor(entrada);
-        tentativas++;
+        vector = parseVector(entry);
+        attempts++;
 
-    } while (vetor.empty()); // Continua até uma entrada válida
+    } while (vector.empty());
 
-    return vetor;
+    return vector;
 }
 
-inline vector<double> LeitorDeVetores::parseVetor(const string& entrada) {
-    vector<double> vetor;
-    string limpando = entrada;
+inline vector<double> LeitorDeVetores::parseVector(const string& entry) {
+    vector<double> vector;
+    string inputProcessed = entry;
 
-    // Remove caracteres indesejados, permitindo apenas números, vírgulas e o sinal de menos (- para números negativos)
-    limpando = regex_replace(limpando, regex("[^0-9.,-]"), "");
-    cout << "Entrada limpa: " << limpando << endl;
 
-    if (limpando.empty()) { 
+    inputProcessed = regex_replace(inputProcessed, regex("[^0-9.,-]"), "");
+
+    if (inputProcessed.empty()) { 
         cout << "Erro: Entrada inválida! Insira apenas números separados por vírgula.\n";
         return {};
     }
 
-    stringstream ss(limpando);
-    string valor;
-    bool entradaValida = false;
+    stringstream ss(inputProcessed);
+    string value;
+    bool validEntry = false;
 
-    while (getline(ss, valor, ',')) {
-        valor.erase(0, valor.find_first_not_of(" \t"));
-        valor.erase(valor.find_last_not_of(" \t") + 1);
+    while (getline(ss, value, ',')) {
+        value.erase(0, value.find_first_not_of(" \t"));
+        value.erase(value.find_last_not_of(" \t") + 1);
 
-        if (valor.empty()) { 
+        if (value.empty()) { 
             cout << "Erro: Um dos valores está vazio! Digite novamente.\n";
             return {};
         }
 
         try {
-            vetor.push_back(stod(valor));
-            entradaValida = true;
+            vector.push_back(stod(value));
+            validEntry = true;
         } catch (...) {
-            cout << "Erro: Valor inválido detectado (" << valor << "). Digite corretamente.\n";
+            cout << "Erro: Valor inválido detectado (" << value << "). Digite corretamente.\n";
             return {};
         }
     }
 
-    if (!entradaValida) {
+    if (!validEntry) {
         cout << "Erro: Nenhum número válido foi inserido! Tente novamente.\n";
         return {};
     }
 
-    return vetor;
+    return vector;
 }
 
-inline void LeitorDeVetores::imprimirVetor(const vector<double>& v) {
+inline void LeitorDeVetores::printVector(const vector<double>& v) {
     cout << "(";
     for (size_t i = 0; i < v.size(); i++) {
         cout << v[i];
