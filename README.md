@@ -27,3 +27,6 @@ Este é um projeto em C++ que realiza operações de álgebra linear.
 
 - Apague o arquivo com:
 ``` rmdir main.exe ```
+
+- Ou apenas: 
+``` g++ *.cpp -o main && main.exe ```
