@@ -1,60 +1,37 @@
-#include <iostream>
-#include <vector>
-using namespace std;
-
 #ifndef ADICAODEVETORES_H_INCLUDED
 #define ADICAODEVETORES_H_INCLUDED
 
-class AdicaoDeVetores
-{
-private:
-    vector<float> vet1;
-    vector<float> vet2;
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include "LeitorDeVetores.h"
 
+using namespace std;
+
+class AdicaoDeVetores {
 public:
-    AdicaoDeVetores();
-    void adicionarVetores();
+    static void adicionarVetores();
 };
 
-#endif // ADICAODEVETORES_H_INCLUDED
+inline void AdicaoDeVetores::adicionarVetores() {
+    vector<double> vet1 = LeitorDeVetores::lerVetor("Digite o primeiro vetor no formato (x,y,z,...): ");
+    vector<double> vet2 = LeitorDeVetores::lerVetor("Digite o segundo vetor no formato (x,y,z,...): ");
 
-AdicaoDeVetores::AdicaoDeVetores() {}
+    LeitorDeVetores::imprimirVetor(vet1);
+    LeitorDeVetores::imprimirVetor(vet2);
 
-void AdicaoDeVetores::adicionarVetores()
-{
-    int dimensao;
-    cout << "Dê o número de dimensões dos vetores: ";
-    cin >> dimensao;
+    size_t maxDim = max(vet1.size(), vet2.size());
+    vet1.resize(maxDim, 0.0);
+    vet2.resize(maxDim, 0.0);
 
-    if (dimensao <= 0) {
-        cout << "Dimensão inválida!" << endl;
-        return;
-    }
-
-    vet1.resize(dimensao);
-    vet2.resize(dimensao);
-
-    cout << "\nDigite os valores do primeiro vetor:\n";
-    for (int i = 0; i < dimensao; i++) {
-        cin >> vet1[i];
-    }
-
-    cout << "\nDigite os valores do segundo vetor:\n";
-    for (int i = 0; i < dimensao; i++) {
-        cin >> vet2[i];
-    }
-
-    vector<float> resultado(dimensao);
-    for (int i = 0; i < dimensao; i++) {
+    vector<double> resultado(maxDim);
+    for (size_t i = 0; i < maxDim; i++) {
         resultado[i] = vet1[i] + vet2[i];
     }
 
-    cout << "\nVetor resultante: [";
-    for (int i = 0; i < dimensao; i++) {
-        cout << resultado[i];
-        if (i != dimensao - 1)
-            cout << ", ";
-    }
-    cout << "]" << endl;
+    cout << "\nResultado da soma: ";
+    LeitorDeVetores::imprimirVetor(resultado);
+    cout << endl;
 }
 
+#endif // ADICAODEVETORES_H_INCLUDED
