@@ -10,27 +10,19 @@ using namespace std;
 
 class AdicaoDeVetores {
 public:
-    static void adicionarVetores();
+    static vector<double> adicionarVetores(vector<double>, vector<double>);
 };
 
-inline void AdicaoDeVetores::adicionarVetores() {
-    vector<double> vet1 = LeitorDeVetores::readVector("Digite o primeiro vetor no formato (x,y,z,...): ");
-    vector<double> vet2 = LeitorDeVetores::readVector("Digite o segundo vetor no formato (x,y,z,...): ");
-    
+inline vector<double> AdicaoDeVetores::adicionarVetores(vector<double> vet1, vector<double> vet2) {
     if(vet1.size() != vet2.size() ) {
-        cout << "\nErro: Vetores de diferentes dimensoes. A operacao de adicao nao pode ser realizada adicione novamente os vetores.\n\n";
-            vet1 = LeitorDeVetores::readVector("Digite o primeiro vetor no formato (x,y,z,...): ");
-            vet2 = LeitorDeVetores::readVector("Digite o segundo vetor no formato (x,y,z,...): ");
+        cout << "\nErro: Vetores de diferentes dimensoes. A operacao de adicao nao pode ser realizada.\n\n";
+        return {};
     }
-
-    vector<double> resultado(vet1.size());
+    vector<double> result(vet1.size());
     for (size_t i = 0; i < vet1.size(); i++) {
-        resultado[i] = vet1[i] + vet2[i];
+        result[i] = vet1[i] + vet2[i];
     }
-
-    cout << "\nResultado da soma: ";
-    LeitorDeVetores::printVector(resultado);
-    cout << endl;
+    return result;
 }
 
 #endif // ADICAODEVETORES_H_INCLUDED
