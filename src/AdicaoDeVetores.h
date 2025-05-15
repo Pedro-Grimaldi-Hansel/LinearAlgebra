@@ -16,13 +16,15 @@ public:
 inline void AdicaoDeVetores::adicionarVetores() {
     vector<double> vet1 = LeitorDeVetores::readVector("Digite o primeiro vetor no formato (x,y,z,...): ");
     vector<double> vet2 = LeitorDeVetores::readVector("Digite o segundo vetor no formato (x,y,z,...): ");
+    
+    if(vet1.size() != vet2.size() ) {
+        cout << "\nErro: Vetores de diferentes dimensoes. A operacao de adicao nao pode ser realizada adicione novamente os vetores.\n\n";
+            vet1 = LeitorDeVetores::readVector("Digite o primeiro vetor no formato (x,y,z,...): ");
+            vet2 = LeitorDeVetores::readVector("Digite o segundo vetor no formato (x,y,z,...): ");
+    }
 
-    size_t maxDim = max(vet1.size(), vet2.size());
-    vet1.resize(maxDim, 0.0);
-    vet2.resize(maxDim, 0.0);
-
-    vector<double> resultado(maxDim);
-    for (size_t i = 0; i < maxDim; i++) {
+    vector<double> resultado(vet1.size());
+    for (size_t i = 0; i < vet1.size(); i++) {
         resultado[i] = vet1[i] + vet2[i];
     }
 
