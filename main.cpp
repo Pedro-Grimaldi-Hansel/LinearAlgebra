@@ -40,8 +40,21 @@ int main()
 
         case 1:
         {   
+            vector<double> vet1 = LeitorDeVetores::readVector("Digite o primeiro vetor no formato (x,y,z,...): ");
+            vector<double> vet2 = LeitorDeVetores::readVector("Digite o segundo vetor no formato (x,y,z,...): ");
+            vector<double> result;
+
+            if(vet1.size() != vet2.size() ) {
+                cout << "\nErro: Vetores de diferentes dimensoes. A operacao de adicao nao pode ser realizada adicione novamente os vetores.\n\n";
+                vet1 = LeitorDeVetores::readVector("Digite o primeiro vetor no formato (x,y,z,...): ");
+                vet2 = LeitorDeVetores::readVector("Digite o segundo vetor no formato (x,y,z,...): ");
+            }
+            
             AdicaoDeVetores adicaoDeVetores;
-            adicaoDeVetores.adicionarVetores();
+            result = adicaoDeVetores.adicionarVetores(vet1, vet2);
+            cout << "\nResultado da soma: ";
+            LeitorDeVetores::printVector(result);
+            cout << endl;
             break;
         }
 
