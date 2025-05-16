@@ -42,16 +42,14 @@ int main()
         {   
             vector<double> vet1 = LeitorDeVetores::readVector("Digite o primeiro vetor no formato (x,y,z,...): ");
             vector<double> vet2 = LeitorDeVetores::readVector("Digite o segundo vetor no formato (x,y,z,...): ");
-            vector<double> result;
 
             if(vet1.size() != vet2.size() ) {
                 cout << "\nErro: Vetores de diferentes dimensoes. A operacao de adicao nao pode ser realizada adicione novamente os vetores.\n\n";
                 vet1 = LeitorDeVetores::readVector("Digite o primeiro vetor no formato (x,y,z,...): ");
                 vet2 = LeitorDeVetores::readVector("Digite o segundo vetor no formato (x,y,z,...): ");
             }
-            
-            AdicaoDeVetores adicaoDeVetores;
-            result = adicaoDeVetores.adicionarVetores(vet1, vet2);
+
+            vector<double> result = AdicaoDeVetores::adicionarVetores(vet1, vet2);
             cout << "\nResultado da soma: ";
             LeitorDeVetores::printVector(result);
             cout << endl;
@@ -61,14 +59,12 @@ int main()
 
         case 2:
         {   
-            vector<double> vet = LeitorDeVetores::readVector("Digite o primeiro vetor no formato (x,y,z,...): ");
+            vector<double> vet = LeitorDeVetores::readVector("Digite o vetor no formato (x,y,z,...): ");
             double escalar;
-            cout << "Digite o escalar: ";
+            cout << "Digite o escalar sem parenteses: ";
             cin >> escalar;
-            vector<double> result;
-
-            MultiplicacaoPorEscalar multiplicacaoPorEscalar;
-            result = multiplicacaoPorEscalar.multiplicarPorEscalar(vet, escalar);
+            cout << escalar << endl;
+            vector<double> result = MultiplicacaoPorEscalar::multiplicarPorEscalar(vet, escalar);
             cout << "\nResultado da multiplicacao: ";
             LeitorDeVetores::printVector(result);
             cout << endl;
@@ -78,9 +74,8 @@ int main()
 
         case 3:
         {            
-            vector<double> vet = LeitorDeVetores::readVector("Digite o primeiro vetor no formato (x,y,z,...): ");
-            NormaEuclidiana normaEuclidiana;
-            double resultado = normaEuclidiana.normaEuclidiana(vet);
+            vector<double> vet = LeitorDeVetores::readVector("Digite o vetor no formato (x,y,z,...): ");
+            double resultado = NormaEuclidiana::normaEuclidiana(vet);
             cout << "\nResultado da norma euclidiana: " << resultado << endl;
 
             break; 
@@ -88,8 +83,12 @@ int main()
 
         case 4:
         {            
-            Normalizacao normalizacao;
-            normalizacao.normalizarVetor();
+            vector<double> vet = LeitorDeVetores::readVector("Digite o vetor no formato (x,y,z,...): ");
+            vector <double> result = Normalizacao::normalizarVetor(vet);
+            cout << "\nResultado da normalizacao: ";
+            LeitorDeVetores::printVector(result);
+            cout << endl;
+
             break;
         }
 
