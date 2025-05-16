@@ -40,15 +40,15 @@ void Normalizacao::normalizarVetor()
     // Alocar dinamicamente o vetor
     vet = new float[dimensao];
 
-    cout << endl << "De os valores do vetor: " << endl;
-    for (int i = 0; i < dimensao; i++)
-    {
-        cin >> vet[i];
-    }
+    // cout << endl << "De os valores do vetor: " << endl;
+    // for (int i = 0; i < dimensao; i++)
+    // {
+    //     cin >> vet[i];
+    // }
 
-    // Calcular a norma euclidiana
-    NormaEuclidiana normaEuclidiana;
-    float norma = normaEuclidiana.calcularNorma_FuncaoInterna(vet, dimensao);
+    // // Calcular a norma euclidiana
+    // NormaEuclidiana normaEuclidiana;
+    // float norma = normaEuclidiana.calcularNorma_FuncaoInterna(vet, dimensao);
 
     // Verificar se a norma é diferente de zero antes de realizar a divisão
     // if (norma != 0.0)

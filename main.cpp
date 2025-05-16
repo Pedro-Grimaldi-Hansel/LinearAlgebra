@@ -78,8 +78,11 @@ int main()
 
         case 3:
         {            
+            vector<double> vet = LeitorDeVetores::readVector("Digite o primeiro vetor no formato (x,y,z,...): ");
             NormaEuclidiana normaEuclidiana;
-            normaEuclidiana.calcularNorma();
+            double resultado = normaEuclidiana.normaEuclidiana(vet);
+            cout << "\nResultado da norma euclidiana: " << resultado << endl;
+
             break; 
         }
 
