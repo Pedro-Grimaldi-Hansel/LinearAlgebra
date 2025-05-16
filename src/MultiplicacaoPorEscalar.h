@@ -1,8 +1,10 @@
-#include <iostream>
-using namespace std;
-
 #ifndef MULTIPLICACAOPORESCALAR_H_INCLUDED
 #define MULTIPLICACAOPORESCALAR_H_INCLUDED
+
+#include <iostream>
+#include "LeitorDeVetores.h"
+
+using namespace std;
 
 class MultiplicacaoPorEscalar
 {
@@ -11,55 +13,19 @@ private:
     int dimensao;
 
 public:
-    MultiplicacaoPorEscalar();
-    ~MultiplicacaoPorEscalar();
-    void multiplicarPorEscalar();
+    static vector<double> multiplicarPorEscalar(vector<double>, double);
 };
 
-#endif // MULTIPLICACAOPORESCALAR_H_INCLUDED
-
-MultiplicacaoPorEscalar::MultiplicacaoPorEscalar(){}
-
-MultiplicacaoPorEscalar::~MultiplicacaoPorEscalar()
+vector<double> MultiplicacaoPorEscalar::multiplicarPorEscalar(vector<double> vet, double escalar)
 {
-    delete[] vet;
-}
-
-void MultiplicacaoPorEscalar::multiplicarPorEscalar()
-{   
-    cout << "De o numero de dimensoes do vetor: "<< endl;
-    cin >> dimensao;
-
-    vet = new float[dimensao];
-
-    cout << endl<< "De os valores do vetor: "<< endl;
-    for (int i = 0; i < dimensao; i++)
-    {
-        cin >> vet[i];
-    }
-
-    float escalar;
-    cout << endl << "De o valor do escalar: "<< endl;
-    cin >> escalar;
-
-    float *resultado = new float[dimensao];
-    for (int i = 0; i < dimensao; i++)
+    vector<double> resultado(vet.size());
+    for (size_t i = 0; i < vet.size(); i++)
     {
         resultado[i] = vet[i] * escalar;
     }
-    cout << endl << "Vetor resultante: [";
-    for (int i = 0; i < dimensao; i++)
-    {
-        if (dimensao - 1 == i)
-        {
-            cout << resultado[i] << "]" << endl;
-        }
-        if (dimensao - 1 != i)
-        {
-            cout << resultado[i] << ", ";
-        }
-    }
-
-    delete[] resultado;
+    return resultado;
 }
+
+#endif // MULTIPLICACAOPORESCALAR_H_INCLUDED
+
 

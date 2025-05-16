@@ -40,7 +40,7 @@ inline vector<double> LeitorDeVetores::readVector(const string& prompt) {
         attempts++;
 
     } while (vector.empty());
-
+    cin.sync();
     return vector;
 }
 
