@@ -10,10 +10,10 @@ using namespace std;
 class NormaEuclidiana
 {
 public:
-    double normaEuclidiana(vector<double>);
+    static double normaEuclidiana(vector<double>);
 };
 
-double NormaEuclidiana::normaEuclidiana(vector<double> vet)
+inline double NormaEuclidiana::normaEuclidiana(vector<double> vet)
 {
     double sum = 0.0;
     for(int i = 0; i < vet.size(); i++)

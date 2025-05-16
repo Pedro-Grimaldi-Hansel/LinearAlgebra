@@ -8,15 +8,11 @@ using namespace std;
 
 class MultiplicacaoPorEscalar
 {
-private:
-    float *vet;
-    int dimensao;
-
 public:
     static vector<double> multiplicarPorEscalar(vector<double>, double);
 };
 
-vector<double> MultiplicacaoPorEscalar::multiplicarPorEscalar(vector<double> vet, double escalar)
+inline vector<double> MultiplicacaoPorEscalar::multiplicarPorEscalar(vector<double> vet, double escalar)
 {
     vector<double> resultado(vet.size());
     for (size_t i = 0; i < vet.size(); i++)
