@@ -55,13 +55,24 @@ int main()
             cout << "\nResultado da soma: ";
             LeitorDeVetores::printVector(result);
             cout << endl;
+
             break;
         }
 
         case 2:
         {   
+            vector<double> vet = LeitorDeVetores::readVector("Digite o primeiro vetor no formato (x,y,z,...): ");
+            double escalar;
+            cout << "Digite o escalar: ";
+            cin >> escalar;
+            vector<double> result;
+
             MultiplicacaoPorEscalar multiplicacaoPorEscalar;
-            multiplicacaoPorEscalar.multiplicarPorEscalar();
+            result = multiplicacaoPorEscalar.multiplicarPorEscalar(vet, escalar);
+            cout << "\nResultado da multiplicacao: ";
+            LeitorDeVetores::printVector(result);
+            cout << endl;
+
             break;
         }
 
