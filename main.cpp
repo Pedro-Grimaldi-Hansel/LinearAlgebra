@@ -5,6 +5,7 @@
 #include "src/MultiplicacaoPorEscalar.h"
 #include "src/NormaEuclidiana.h"
 #include "src/Normalizacao.h"
+#include "src/ProdutoEscalar.h"
 
 using namespace std;
 
@@ -94,6 +95,17 @@ int main()
 
         case 5:
         {
+            vector<double> vet1 = LeitorDeVetores::readVector("Digite o primeiro vetor no formato (x,y,z,...): ");
+            vector<double> vet2 = LeitorDeVetores::readVector("Digite o segundo vetor no formato (x,y,z,...): ");
+
+            if(vet1.size() != vet2.size() ) {
+                cout << "\nErro: Vetores de diferentes dimensoes. O produto escalar nao pode ser calculado, adicione novamente os vetores.\n\n";
+                vet1 = LeitorDeVetores::readVector("Digite o primeiro vetor no formato (x,y,z,...): ");
+                vet2 = LeitorDeVetores::readVector("Digite o segundo vetor no formato (x,y,z,...): ");
+            }
+
+            double result = ProdutoEscalar::produtoEscalar(vet1, vet2);
+            cout << "\nResultado do produto escalar: " << result << endl;
 
             break;
         }
